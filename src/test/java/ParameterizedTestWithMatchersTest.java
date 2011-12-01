@@ -4,7 +4,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import java.util.Arrays;
 import java.util.Collection;
 
 import static java.util.Arrays.asList;
@@ -33,10 +32,7 @@ public class ParameterizedTestWithMatchersTest {
 
     @Test
     public void valueShouldMatchExpectations() {
-        assertThat(describeExpectations(), expectedValue.matches(value), is(true));
+        assertThat(value + " should be " + expectedValue, expectedValue.matches(value), is(true));
     }
 
-    private String describeExpectations() {
-        return value + " should be " + expectedValue;
-    }
 }
