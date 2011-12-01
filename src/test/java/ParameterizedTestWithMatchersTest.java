@@ -7,6 +7,7 @@ import org.junit.runners.Parameterized.Parameters;
 import java.util.Arrays;
 import java.util.Collection;
 
+import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -17,7 +18,7 @@ public class ParameterizedTestWithMatchersTest {
 
     @Parameters
     public static Collection data() {
-        return Arrays.asList(new Object[][]{
+        return asList(new Object[][]{
             {1, greaterThan(0)},
             {0, not(greaterThan(1))},
             {2, allOf(greaterThan(1), lessThan(3))},
@@ -36,6 +37,6 @@ public class ParameterizedTestWithMatchersTest {
     }
 
     private String describeExpectations() {
-        return Integer.toString(value) + " should be " + expectedValue.toString();
+        return value + " should be " + expectedValue;
     }
 }
